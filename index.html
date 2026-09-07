@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>칼퇴서류 · Grok 재현본 — 회사 서류를 5분 만에</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand" onclick="go('home')">칼퇴서류</div>
+    <div class="subnav" id="crumb">도구 바로가기 ▾</div>
+    <nav class="nav-right">
+      <a class="pill" href="javascript:go('home')">업무 서류</a>
+      <span class="tool-actions" id="toolActions">
+        <button class="btn" onclick="fillExample()">예시</button>
+        <button class="btn" onclick="resetTool()">초기화</button>
+        <button class="btn dark" onclick="window.print()">인쇄 / PDF</button>
+      </span>
+    </nav>
+  </header>
+  <main id="home" class="home show">
+    <section class="hero">
+      <h1>서류는<br>5분이면 끝.</h1>
+      <div class="blob-wrap">
+        <div class="blob"></div>
+        <div class="tags">
+          <a href="javascript:go('receipt')">#간이영수증</a>
+          <a href="javascript:go('salary')">#실수령액계산</a>
+          <a href="javascript:go('stamp')">#도장만들기</a>
+          <a href="javascript:go('quote')">#견적서</a>
+          <a href="javascript:go('age')">#만나이계산</a>
+          <a href="javascript:go('approval')">#품의서</a>
+          <a href="javascript:go('leave')">#연차계산</a>
+        </div>
+      </div>
+    </section>
+    <div class="count-block">
+      <h2>도구 12종 재현</h2>
+      <p>원본 77종의 핵심 UX를 Grok으로 다시 만든 테스트본입니다. 이름으로 검색하거나 분류를 눌러 찾으세요.</p>
+    </div>
+    <div class="search-wrap"><input id="q" placeholder="도구 이름 검색" oninput="filterCards()" /></div>
+    <div class="cats" id="cats"></div>
+    <section class="section" id="lists"></section>
+    <section class="about">
+      <h3>이 재현본은 어떤 서비스인가요</h3>
+      <p>왼쪽에서 내용을 입력하면 오른쪽 서식이 바로 완성됩니다. 인쇄 또는 브라우저 PDF 저장으로 가져가면 됩니다. 입력값은 이 브라우저의 로컬 저장소에만 남고 서버로 전송되지 않습니다.</p>
+    </section>
+    <footer class="foot">Grok 재현 테스트 · 2026. 9. 7.</footer>
+  </main>
+  <section id="app" class="app">
+    <div class="workspace">
+      <aside class="panel">
+        <h2 id="formTitle">내용 입력</h2>
+        <div class="body" id="formBody"></div>
+      </aside>
+      <aside class="panel">
+        <div class="preview-head">
+          <b>미리보기</b>
+          <button class="btn dark" onclick="window.print()">인쇄 / PDF 저장</button>
+        </div>
+        <div class="paper-wrap">
+          <div class="paper" id="paper"></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+<script src="app.js"></script>
+</body>
+</html>
